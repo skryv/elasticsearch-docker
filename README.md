@@ -17,6 +17,7 @@ A full build and test requires:
 - Docker
 - GNU Make
 - Python 3.5 with Virtualenv
+- install all requirements in requirements.txt with pip3
 
 ## Running a build
 To build an image with the latest nightly snapshot of Elasticsearch, run:
