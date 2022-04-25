@@ -29,9 +29,11 @@ To build an image with a released version of Elasticsearch, check out the corres
 branch for the version, and run Make while specifying the exact version desired.
 Like this:
 ```
-git checkout 6.2
-ELASTIC_VERSION=6.2.4 make
+(git checkout 6.4.2-A1)
+ELASTIC_VERSION=6.4.2 make build
+docker tag docker.elastic.co/elasticsearch/elasticsearch-platinum:6.4.2 dckr.skryv.com/elastic-m1:6.4.2
 ```
+Newer build scripts do not work.  This build script download the correct artifacts. 
 
 ## Contributing, issues and testing
 
