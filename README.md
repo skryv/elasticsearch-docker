@@ -25,13 +25,12 @@ To build an image with the latest nightly snapshot of Elasticsearch, run:
 make from-snapshot
 ```
 
-To build an image with a released version of Elasticsearch, check out the corresponding
+To build and push an image with a released version of Elasticsearch, check out the corresponding
 branch for the version, and run Make while specifying the exact version desired.
 Like this:
 ```
 (git checkout 6.4.2-A1)
-ELASTIC_VERSION=6.4.2 make build
-docker tag docker.elastic.co/elasticsearch/elasticsearch-platinum:6.4.2 dckr.skryv.com/elastic-m1:6.4.2
+ELASTIC_VERSION=6.4.2  IMAGE_FLAVORS=platinum ELASTIC_REGISTRY=dckr.skryv.com make build
 ```
 Newer build scripts do not work.  This build script download the correct artifacts. 
 

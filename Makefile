@@ -83,10 +83,7 @@ run-cluster: build docker-compose
 build: clean dockerfile
 	$(foreach FLAVOR, $(IMAGE_FLAVORS), \
 	  pyfiglet -f puffy -w 160 "Building: $(FLAVOR)"; \
-	  docker build -t $(IMAGE_TAG)-$(FLAVOR):$(VERSION_TAG) -f build/elasticsearch/Dockerfile-$(FLAVOR) build/elasticsearch; \
-	  if [[ $(FLAVOR) == $(DEFAULT_IMAGE_FLAVOR) ]]; then \
-	    docker tag $(IMAGE_TAG)-$(FLAVOR):$(VERSION_TAG) $(IMAGE_TAG):$(VERSION_TAG); \
-	  fi; \
+	  docker buildx build --platform=linux/amd64,linux/arm64 -o type=image,name=$(IMAGE_TAG)-$(FLAVOR):$(VERSION_TAG),push=true -f build/elasticsearch/Dockerfile-$(FLAVOR) build/elasticsearch;  \
 	)
 
 
