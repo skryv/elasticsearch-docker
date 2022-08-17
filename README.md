@@ -29,7 +29,7 @@ To build and push an image with a released version of Elasticsearch, check out t
 branch for the version, and run Make while specifying the exact version desired.
 Like this:
 ```
-(git checkout 6.4.2-A1)
+(git checkout 6.4.2-M1)
 ELASTIC_VERSION=6.4.2  IMAGE_FLAVORS=platinum ELASTIC_REGISTRY=dckr.skryv.com make build
 ```
 Newer build scripts do not work.  This build script download the correct artifacts. 
